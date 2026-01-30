@@ -15,7 +15,7 @@ set "WARNINGS=0"
 :: --------------------------------
 :: Check Chrome wrapper
 :: --------------------------------
-echo [1/6] Chrome Wrapper
+echo [1/7] Chrome Wrapper
 set "WRAPPER=C:\antigravity\chrome\chrome.exe"
 if exist "%WRAPPER%" (
     echo      [OK] Wrapper exists: %WRAPPER%
@@ -28,7 +28,7 @@ echo.
 :: --------------------------------
 :: Check real Chrome
 :: --------------------------------
-echo [2/6] Chrome Installation
+echo [2/7] Chrome Installation
 
 set "CHROME_PATH="
 set "PATHS[0]=C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -52,7 +52,7 @@ echo.
 :: --------------------------------
 :: Check port proxy script
 :: --------------------------------
-echo [3/6] Port Proxy Script
+echo [3/7] Port Proxy Script
 set "PROXY_SCRIPT=C:\antigravity\wsl-portproxy.ps1"
 if exist "%PROXY_SCRIPT%" (
     echo      [OK] Script exists: %PROXY_SCRIPT%
@@ -65,7 +65,7 @@ echo.
 :: --------------------------------
 :: Check portproxy rules (requires admin)
 :: --------------------------------
-echo [4/6] Port Proxy Rules
+echo [4/7] Port Proxy Rules
 echo      Checking netsh portproxy...
 
 for /f "tokens=*" %%a in ('netsh interface portproxy show v4tov4 2^>nul ^| findstr "9222"') do (
@@ -85,7 +85,7 @@ echo.
 :: --------------------------------
 :: Check firewall
 :: --------------------------------
-echo [5/6] Firewall Rule
+echo [5/7] Firewall Rule
 powershell -NoProfile -Command ^
     "$rule = Get-NetFirewallRule -DisplayName 'Antigravity Bridge' -ErrorAction SilentlyContinue; if ($rule) { Write-Host '     [OK] Firewall rule exists: Antigravity Bridge'; Write-Host ('          Enabled: ' + $rule.Enabled) } else { Write-Host '     [WARN] Firewall rule not found'; exit 1 }"
 
