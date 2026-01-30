@@ -50,7 +50,7 @@ precaution since agents can start services.
 ## Quick Start
 
 ### 0. Network State
-If you're using WSL network is set to "mirrored" mode, you'll need to change it to "private" mode.
+Network must be set to "private" mode. If you have switched to "mirrored" mode you will need to switch back to "private" mode. 
 
 ### 1. Clone the Repository
 
