@@ -149,7 +149,7 @@ Run the port proxy script manually:
 
 Start it manually:
 ```bash
-/usr/local/bin/chrome-debug-forward &
+/usr/local/bin/chrome-debug-forward.sh &
 ```
 
 Or via systemd:

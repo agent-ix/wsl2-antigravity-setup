@@ -15,7 +15,7 @@ SRC_DIR="$REPO_ROOT/src"
 INSTALL_BIN="/usr/local/bin"
 SERVICE_NAME="chrome-debug-forward"
 FORWARDER_SRC="$SRC_DIR/chrome-debug-forward.sh"
-FORWARDER_DST="$INSTALL_BIN/chrome-debug-forward"
+FORWARDER_DST="$INSTALL_BIN/chrome-debug-forward.sh"
 
 # --------------------------------
 # Check for root
@@ -54,7 +54,7 @@ echo ""
 echo "[2/4] Installing forwarder script..."
 
 cp "$FORWARDER_SRC" "$FORWARDER_DST"
-chmod +x "$FORWARDER_DST"
+chmod 755 "$FORWARDER_DST"
 echo "      Installed: $FORWARDER_DST"
 echo ""
 

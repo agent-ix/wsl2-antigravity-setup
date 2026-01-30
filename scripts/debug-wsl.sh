@@ -39,7 +39,7 @@ echo ""
 # --------------------------------
 echo "[2/6] Forwarder Script"
 
-FORWARDER="/usr/local/bin/chrome-debug-forward"
+FORWARDER="/usr/local/bin/chrome-debug-forward.sh"
 if [[ -x "$FORWARDER" ]]; then
     ok "Script installed: $FORWARDER"
 else
@@ -57,7 +57,7 @@ echo ""
 echo "[3/6] Systemd Service"
 
 SERVICE_NAME="chrome-debug-forward"
-USER_SERVICE="$HOME/.config/systemd/user/$SERVICE_NAME.service"
+USER_SERVICE="$HOME/.config/systemd/user/${SERVICE_NAME}.service"
 
 if [[ -f "$USER_SERVICE" ]]; then
     ok "Service file exists: $USER_SERVICE"
@@ -88,12 +88,6 @@ echo "[4/6] Windows Host"
 WINDOWS_HOST="$(ip route | awk '/^default/ { print $3; exit }')"
 if [[ -n "$WINDOWS_HOST" ]]; then
     ok "Windows host IP: $WINDOWS_HOST"
-    
-    if ping -c 1 -W 1 "$WINDOWS_HOST" &>/dev/null; then
-        ok "Host is reachable"
-    else
-        err "Host is NOT reachable"
-    fi
 else
     err "Could not determine Windows host IP"
 fi
