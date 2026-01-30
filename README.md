@@ -1,14 +1,18 @@
 # WSL2 Antigravity Browser Bridge
 
-Enable Chrome remote debugging from WSL and Linux containers by bridging the Chrome DevTools Protocol (CDP) from Windows to WSL.
+Enable Chrome remote debugging from WSL and Linux containers by bridging the Chrome DevTools Protocol (CDP) from Windows to WSL while retaining separate NAT'd network for WSL.
 
 ## Overview
 
 This setup allows tools running inside WSL (like Playwright, Puppeteer, or AI agents) to control a Chrome browser running on the Windows host. This is useful because:
 
-- Chrome debug port binds to `localhost` which isn't directly accessible from WSL
+- Chrome debug port binds to `127.0.0.1` which isn't directly accessible from WSL
 - Running Chrome inside containers has sandboxing limitations
 - You can use the host's authenticated browser sessions
+
+This is an alternative method to using "mirrored" WSL network mode. This method ensures the WSL network is 
+isolated and service bound to `0.0.0.0` won't be exposed to the external WAN/LAN. It's an extra layer of 
+precaution since agents can start services.
 
 ### Architecture
 
