@@ -1,5 +1,7 @@
 # WSL2 Antigravity Browser Bridge
 
+[![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/k8DVhuYBR2)
+
 Enable Chrome remote debugging from WSL and Linux containers by bridging the Chrome DevTools Protocol (CDP) from Windows to WSL while retaining separate NAT'd network for WSL.
 
 ## Overview
